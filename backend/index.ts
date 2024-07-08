@@ -16,8 +16,13 @@ const pool = new Pool({
   port: Number(process.env.PG_PORT),
 });
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
+app.get('/plants', async (req: Request, res: Response) => {
+  try {
+    const result = await pool.query('SELECT * FROM plants');
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
 });
 
 app.listen(port, () => {
