@@ -7,7 +7,6 @@ dotenv.config();
 const app = express();
 const port = 3001; 
 
-// PostgreSQL setup
 const pool = new Pool({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
