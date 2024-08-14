@@ -6,11 +6,13 @@ import Home from "./pages/Home";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <Header />
+    <div className="App flex flex-col min-h-screen">
+    <Header />
+    <main className="flex-grow">
       <Home />
-      <Footer />
-    </div>
+    </main>
+    <Footer />
+  </div>
   );
 };
 
